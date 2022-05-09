@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <title>Base16 Colour Scheme Viewer</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/mvp.css">
+
+    <style>
+    :root {
+      --justify-important: left;
+    }
+      main {
+        max-width: 1632px;
+        margin: 0 auto;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      }
+
+      .grid {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .swatch {
+        width: 180px;
+        height: 100px;
+      }
+
+      .color {
+        margin: 0 12px 24px 12px;
+      }
+
+      textarea {
+        width: 100%;
+        height: 26em;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <h1>Base16 Colour Scheme Viewer</h1>
+      <div class="grid">
+        <div class="color">
+          <div class="swatch" style="background-color: #002b36"></div>
+          <div class="color-name">Base 00</div>
+          <div class="color-hex">#002b36</div>
+        </div>
+        <div class="color">
+          <div class="swatch" style="background-color: #073642"></div>
+          <div class="color-name">Base 01</div>
+          <div class="color-hex">#073642</div>
+        </div>
+        <div class="color">
+          <div class="swatch" style="background-color: #586e75"></div>
+          <div class="color-name">Base 02</div>
+          <div class="color-hex">#586e75</div>
+        </div>
+        <div class="color">
+          <div class="swatch" style="background-color: #657b83"></div>
+          <div class="color-name">Base 03</div>
+          <div class="color-hex">#657b83</div>
+        </div>
+        <div class="color">
+          <div class="swatch" style="background-color: #839496"></div>
+          <div class="color-name">Base 04</div>
+          <div class="color-hex">#839496</div>
+        </div>
+        <div class="color">
+          <div class="swatch" style="background-color: #93a1a1"></div>
+          <div class="color-name">Base 05</div>
+          <div class="color-hex">#93a1a1</div>
+        </div>
+        <div class="color">
+          <div class="swatch" style="background-color: #eee8d5"></div>
+          <div class="color-name">Base 06</div>
+          <div class="color-hex">#eee8d5</div>
+        </div>
+        <div class="color">
+          <div class="swatch" style="background-color: #fdf6e3"></div>
+          <div class="color-name">Base 07</div>
+          <div class="color-hex">#fdf6e3</div>
+        </div>
+        <div class="color">
+          <div class="swatch" style="background-color: #dc322f"></div>
+          <div class="color-name">Base 08</div>
+          <div class="color-hex">#dc322f</div>
+        </div>
+        <div class="color">
+          <div class="swatch" style="background-color: #cb4b16"></div>
+          <div class="color-name">Base 09</div>
+          <div class="color-hex">#cb4b16</div>
+        </div>
+        <div class="color">
+          <div class="swatch" style="background-color: #b58900"></div>
+          <div class="color-name">Base 0A</div>
+          <div class="color-hex">#b58900</div>
+        </div>
+        <div class="color">
+          <div class="swatch" style="background-color: #859900"></div>
+          <div class="color-name">Base 0B</div>
+          <div class="color-hex">#859900</div>
+        </div>
+        <div class="color">
+          <div class="swatch" style="background-color: #2aa198"></div>
+          <div class="color-name">Base 0C</div>
+          <div class="color-hex">#2aa198</div>
+        </div>
+        <div class="color">
+          <div class="swatch" style="background-color: #268bd2"></div>
+          <div class="color-name">Base 0D</div>
+          <div class="color-hex">#268bd2</div>
+        </div>
+        <div class="color">
+          <div class="swatch" style="background-color: #6c71c4"></div>
+          <div class="color-name">Base 0E</div>
+          <div class="color-hex">#6c71c4</div>
+        </div>
+        <div class="color">
+          <div class="swatch" style="background-color: #d33682"></div>
+          <div class="color-name">Base 0F</div>
+          <div class="color-hex">#d33682</div>
+        </div>
+      </div>
+
+      <div>
+        <label for="scheme">Paste a scheme's yaml file here:</label>
+        <textarea id="scheme">
+scheme: "Solarized Dark"
+author: "Ethan Schoonover (modified by aramisgithub)"
+base00: "002b36"
+base01: "073642"
+base02: "586e75"
+base03: "657b83"
+base04: "839496"
+base05: "93a1a1"
+base06: "eee8d5"
+base07: "fdf6e3"
+base08: "dc322f"
+base09: "cb4b16"
+base0A: "b58900"
+base0B: "859900"
+base0C: "2aa198"
+base0D: "268bd2"
+base0E: "6c71c4"
+base0F: "d33682"
+</textarea>
+        <p class="error"></p>
+      </div>
+
+      <section>
+        <ul>
+          <li>
+            <a href="https://github.com/chriskempson/base16">Original base16 theme framework</a>
+          </li>
+          <li>
+            <a href="https://github.com/chriskempson/base16-schemes-source">List of themes</a>
+          </li>
+          <li>
+            <a href="https://github.com/sesh/base16-viewer">sesh/base16-viewer</a>
+          </li>
+        </ul>
+      </section>
+    </main>
+    <script>
+      function scheme(e) {
+        document.querySelector(".error").innerText = "";
+        let scheme = [];
+        e.target.value.split("\n").forEach((l) => {
+          if (l.startsWith("base")) {
+            scheme.push("#" + l.split(":")[1].replaceAll('"', "").trim());
+          }
+        });
+
+        if (scheme.length == 16) {
+          document.querySelectorAll(".color").forEach((el, i) => {
+            el.querySelector(".swatch").style.backgroundColor = scheme[i];
+            el.querySelector(".color-hex").innerText = scheme[i].toLowerCase();
+          });
+        } else {
+          document.querySelector(".error").innerText = "Could not parse yaml to load scheme."
+        }
+      }
+
+      document
+        .querySelector("textarea")
+        .addEventListener("keyup", scheme);
+    </script>
+  </body>
+</html>
