@@ -166,10 +166,11 @@ base0F: "d33682"
       </section>
     </main>
     <script>
-      function scheme(e) {
+      function scheme() {
         document.querySelector(".error").innerText = "";
         let scheme = [];
-        e.target.value.split("\n").forEach((l) => {
+
+        document.querySelector("textarea").value.split("\n").forEach((l) => {
           if (l.startsWith("base")) {
             scheme.push("#" + l.split(":")[1].replaceAll('"', "").trim());
           }
@@ -180,7 +181,7 @@ base0F: "d33682"
             el.querySelector(".swatch").style.backgroundColor = scheme[i];
             el.querySelector(".color-hex").innerText = scheme[i].toLowerCase();
           });
-        } else {
+        } else if (document.querySelector("textarea").value.length > 0) {
           document.querySelector(".error").innerText = "Could not parse yaml to load scheme."
         }
       }
@@ -188,6 +189,8 @@ base0F: "d33682"
       document
         .querySelector("textarea")
         .addEventListener("keyup", scheme);
+
+      scheme()
     </script>
   </body>
 </html>
